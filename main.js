@@ -1,8 +1,12 @@
 const tg = Telegram.WebApp;
 tg.expand();
+// user id
+const userId = tg.initDataUnsafe?.user?.id || "guest";
 
-let coins = 0;
-let adsSeen = 0;
+// load saved data
+let coins = Number(localStorage.getItem("coins_" + userId)) || 0;
+let adsSeen = Number(localStorage.getItem("ads_" + userId)) || 0;
+
 let cooldown = false;
 let cd = 3;
 
@@ -40,13 +44,26 @@ function startCD() {
     if(t<=0){clearInterval(i);cooldown=false;}
   },1000);
 }
-
 function updateUI() {
-  document.getElementById("balance").innerText = coins+" Coins";
+  // balance
+  document.getElementById("balance").innerText = coins + " Coins";
+
+  // USD conversion (10 coins = $0.01)
   document.getElementById("usd").innerText =
-    `≈ $${(coins/1000).toFixed(2)}`;
-  document.getElementById("adsSeen").innerText = adsSeen;
-  document.getElementById("dailyEarned").innerText = coins;
+    "≈ $" + (coins / 1000).toFixed(2);
+
+  // ads stats
+  document.getElementById("adsSeen").innerText = adsSeen + "/50";
+  document.getElementById("dailyEarned").innerText =
+    (adsSeen * 10) + "/500";
+
+  // cooldown text
+  document.getElementById("cooldown").innerText =
+    cooldown ? "Cooldown running..." : "Ready to watch ad";
+
+  // save data (VERY IMPORTANT)
+  localStorage.setItem("coins_" + userId, coins);
+  localStorage.setItem("ads_" + userId, adsSeen);
 }
 
 // tabs
@@ -65,3 +82,4 @@ function openTab(t){
 function verifyJoin(){
   document.getElementById("joinBlock").style.display="none";
 }
+updateUI();
