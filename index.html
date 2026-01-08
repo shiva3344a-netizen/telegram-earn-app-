@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Crypto Earn App</title>
+  <title>Ads Earning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Telegram -->
@@ -17,43 +17,35 @@
 </head>
 
 <body>
+  <div class="app">
 
-<div id="joinBlock" class="overlay">
-  <h3>Join all channels before proceeding</h3>
+    <h2 id="username">Welcome</h2>
 
-  <a href="https://t.me/adsUpdatesEarning" target="_blank">📢 Join Updates</a>
-  <a href="https://t.me/paymentAdsEarning" target="_blank">💰 Payments</a>
-  <a href="https://t.me/DailyNewsUpdated37" target="_blank">📣 Sponsored</a>
+    <div class="card">
+      <h3>💵 Balance</h3>
+      <p id="balance">$0.0000</p>
+      <small>Min Withdraw: $0.05</small>
+    </div>
 
-  <button onclick="verifyJoin()">✔ Verify Membership</button>
-</div>
+    <div class="card">
+      ⏱️ <span id="cooldown">Ready</span><br>
+      🎯 Ads Seen: <span id="adsSeen">0</span>/250<br>
+      💰 Today: $<span id="dailyEarned">0.0000</span>
+    </div>
 
-<div class="app">
+    <button onclick="watchAd()">▶ Watch Ad</button>
 
-  <h2 id="username">Welcome</h2>
+    <div class="card">
+      <h3>👥 Referral (20% Lifetime)</h3>
+      <input id="refLink" readonly>
+      <button onclick="copyRef()">Copy Referral Link</button>
 
-  <div class="card">
-  ⏱️ <span id="cooldown">Ready</span><br>
-  🎯 Ads Seen: <span id="adsSeen">0</span><br>
-  💵 Daily: <span id="dailyEarned">0</span>
+      <h4>📜 Referral History</h4>
+      <div id="refHistory">No invites found</div>
+    </div>
+
   </div>
 
-  <div class="card">
-    ⏱ Cooldown: 3s<br>
-    🎯 Ads Seen: <span id="adsSeen">0</span>/50<br>
-    💵 Daily: <span id="dailyEarned">0</span>/500
-  </div>
-
-  <button onclick="watchAd()">▶ Watch Ad</button>
-
-</div>
-
-<div class="tabs">
-  <div class="tab active" onclick="openTab('earn')">💰<span>Earn</span></div>
-  <div class="tab" onclick="openTab('ref')">👥<span>Referral</span></div>
-  <div class="tab" onclick="openTab('pay')">💸<span>Payout</span></div>
-</div>
-
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
