@@ -117,3 +117,40 @@ function copyRef() {
 }
 
 updateUI();
+function requestPayout() {
+  const wallet = document.getElementById("wallet").value.trim();
+  const status = document.getElementById("payoutStatus");
+
+  if (!wallet || wallet.length < 6) {
+    status.innerText = "❌ Enter a valid crypto address";
+    return;
+  }
+
+  if (balance < 0.05) {
+    status.innerText = "❌ Minimum withdraw is $0.05";
+    return;
+  }
+
+  let payouts =
+    JSON.parse(localStorage.getItem("payouts_" + userId)) || [];
+
+  payouts.push({
+    amount: balance.toFixed(4),
+    wallet: wallet,
+    time: new Date().toLocaleString(),
+    status: "Pending"
+  });
+
+  localStorage.setItem(
+    "payouts_" + userId,
+    JSON.stringify(payouts)
+  );
+
+  status.innerText = "✅ Withdrawal requested (0–72 hours)";
+
+  balance = 0;
+  dailyEarned = 0;
+  adsSeen = 0;
+
+  updateUI();
+}
