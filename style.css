@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: linear-gradient(180deg,#020617,#0f172a);
+  color: #e5e7eb;
+}
+
+.app {
+  padding: 16px;
+  padding-bottom: 90px;
+  text-align: center;
+}
+
+.uid {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 16px;
+  border-radius: 14px;
+  margin: 16px 0;
+}
+
+button {
+  background: linear-gradient(90deg,#22c55e,#16a34a);
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  width: 100%;
+  color: #022c22;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.info {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.ref-box {
+  background: #020617;
+  border: 1px dashed #334155;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+input {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: #e5e7eb;
+  margin-top: 10px;
+}
+
+.ad-box {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px dashed #1e293b;
+  border-radius: 12px;
+  opacity: 0.6;
+}
+
+.tab { display: none; }
+.tab.active { display: block; }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  background: #020617;
+  border-top: 1px solid #1e293b;
+}
+
+.bottom-nav button {
+  background: transparent;
+  color: #e5e7eb;
+}
+
+.small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.note {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 15px;
+}
+
+#history {
+  list-style: none;
+  padding: 0;
+  font-size: 13px;
+}

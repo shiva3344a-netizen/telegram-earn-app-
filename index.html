@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Earn App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <h2 id="username">Welcome</h2>
+  <p class="uid">User ID: <span id="userid">---</span></p>
+
+  <!-- EARN TAB -->
+  <div class="tab active" id="earnTab">
+    <div class="card">
+      <h3>Total Balance</h3>
+      <p><span id="balance">0</span> Coins</p>
+    </div>
+
+    <div class="card">
+      <p class="info">1 Ad = 10 Coins</p>
+      <p class="info">
+        Ads Seen: <b><span id="adsSeen">0</span>/50</b><br>
+        Ads Remaining: <b><span id="adsLeft">50</span></b><br>
+        Daily Earned: <b><span id="coinsToday">0</span>/500</b>
+      </p>
+      <p class="info" id="cooldownText">Ready to watch ad</p>
+    </div>
+
+    <button onclick="watchAd()">▶ Watch Ad</button>
+
+    <div class="ad-box">Advertisement</div>
+  </div>
+
+  <!-- REFERRAL TAB -->
+  <div class="tab" id="refTab">
+    <div class="card">
+      <h3>Referral Program</h3>
+      <p>Earn <b>20%</b> lifetime commission</p>
+
+      <div class="ref-box" id="refcode"></div>
+      <button onclick="copyRef()">Copy Referral Link</button>
+
+      <input type="text" id="enterRef" placeholder="Enter referral code (one time)">
+      <button onclick="applyRef()">Apply Code</button>
+    </div>
+  </div>
+
+  <!-- PAYOUT TAB -->
+  <div class="tab" id="payoutTab">
+    <div class="card">
+      <h3>USDT (BEP-20) Withdrawal</h3>
+
+      <p class="small">
+        Conversion: <b>10 Coins = $0.01</b><br>
+        Minimum Withdrawal: <b>$1 (1000 Coins)</b>
+      </p>
+
+      <input type="text" placeholder="Enter your USDT BEP-20 address">
+      <button onclick="withdraw()">Request Withdrawal</button>
+
+      <p class="status" id="withdrawStatus"></p>
+
+      <h4>Withdrawal History</h4>
+      <ul id="history">
+        <li id="noHistory">No history found</li>
+      </ul>
+
+      <p class="note">
+        Important Note:<br>
+        • Maximum <b>2 withdrawals per day</b><br>
+        • Withdrawals processed in <b>0–72 hours</b><br>
+        • USDT (BEP-20) only<br><br>
+        24/7 Contact Support available
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button onclick="showTab('earnTab')">Earn</button>
+  <button onclick="showTab('refTab')">Referral</button>
+  <button onclick="showTab('payoutTab')">Payout</button>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
