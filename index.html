@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ads Earning</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Telegram -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <!-- Monetag -->
-  <script src="//libtl.com/sdk.js"
-    data-zone="10434113"
-    data-sdk="show_10434113"></script>
-
-  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    body { background:#0f172a; color:white; font-family:sans-serif; }
+    .box { background:#111827; padding:15px; margin:10px; border-radius:10px; }
+    button { padding:10px; width:100%; margin-top:10px; }
+    input, select { width:100%; padding:8px; margin-top:5px; }
+  </style>
 </head>
-
 <body>
-  <div class="app">
 
-    <h2 id="username">Welcome</h2>
+<h2 id="username">Welcome</h2>
 
-    <div class="card">
-      <h3>💵 Balance</h3>
-      <p id="balance">$0.0000</p>
-      <small>Min Withdraw: $0.05</small>
-    </div>
-
-    <div class="card">
-      ⏱️ <span id="cooldown">Ready</span><br>
-      🎯 Ads Seen: <span id="adsSeen">0</span>/250<br>
-      💰 Today: $<span id="dailyEarned">0.0000</span>
-    </div>
-
-    <button onclick="watchAd()">▶ Watch Ad</button>
-
-    <div class="card">
-      <h3>👥 Referral (20% Lifetime)</h3>
-      <input id="refLink" readonly>
-      <button onclick="copyRef()">Copy Referral Link</button>
-
-      <h4>📜 Referral History</h4>
-      <div id="refHistory">No invites found</div>
-    </div>
-<div class="card">
-  <h3>💸 Payout</h3>
-
-  <p>Minimum Withdraw: <b>$0.05</b></p>
-
-  <input id="wallet" placeholder="Enter USDT / TRX Address">
-
-  <button onclick="requestPayout()">Request Payout</button>
-
-  <p id="payoutStatus" style="margin-top:8px;color:#facc15"></p>
+<div class="box">
+  <h3>💰 Balance</h3>
+  <p id="balance">$0.0000</p>
+  <p>Min Withdraw: $0.05</p>
 </div>
-  </div>
 
-  <script src="main.js"></script>
+<div class="box">
+  <button onclick="watchAd()">▶ Watch Ad</button>
+</div>
+
+<div class="box">
+  <h3>👥 Referral (20% Lifetime)</h3>
+  <input id="refLink" readonly />
+  <button onclick="copyRef()">Copy Referral Link</button>
+</div>
+
+<div class="box">
+  <h3>💸 Payout</h3>
+  <select id="payoutType">
+    <option value="USDT">USDT (TRC20)</option>
+    <option value="TRX">TRX</option>
+  </select>
+  <input id="wallet" placeholder="Wallet Address" />
+  <button onclick="withdraw()">Withdraw</button>
+</div>
+
+<div class="box">
+  <h3>📌 Important Notes</h3>
+  <ul>
+    <li>No VPN / Proxy</li>
+    <li>Fake traffic = ban</li>
+    <li>One account per user</li>
+    <li>Manual withdrawal</li>
+    <li>Lifetime referral commission</li>
+  </ul>
+</div>
+
 </body>
 </html>
